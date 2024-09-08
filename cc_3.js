@@ -3,7 +3,7 @@
 function calculateAverageSales(sales) {
     if (sales.length === 0) return 0;
     const totalSales = sales.reduce((sum, sale) => sum + sale, 0); // Sum of elements in array
-    return totalSales / salesLength; // Dividing sum by number of elements in array to find average
+    return totalSales / sales.length; // Dividing sum by number of elements in array to find average
 }
 
 //Task 2: Create a function to determine performance rating
@@ -40,23 +40,34 @@ function findTopAndBottomPerformers (salesperson) {
 
 //Task 4: Combine functions to generate a performance report
 
-function generatePerformanceReport (salesData) {
+function generatePerformanceReport (salesInfo) {
     const salesperson = salesInfo.map(person => {
         const averageSales = calculateAverageSales(person.sales); // compute average sales for each salesperson
         const rating = determinePerformanceRating (averageSales); // assigns performance rating to each salesperson based on average sales
         return {
             name;person.name,
-            averageSales
+            averageSales: averageSales
+            performanceRating: rating 
+            totalSales: averageSales // for findTopAndBottomPerformers function
         };
     });
     const{topPerformer, bottomPerformer} = findTopAndBottomPerformer(salespeople); // identify top and bottom performer
     return {
         salesperson: salesperson.map(person => ({
             name:person.name
-            averageSales: person.averageSales
-            performanceRating: person.rating // Summary of salesperson's average sales, performance rating, top and bottom performer
+            averageSales: person.averageSales 
+            performanceRating: person.performanceRating // Summary of salesperson's name, average sales, and performance rating
         })),
         topPerformer: topPerformer ? topPerformer.name : "None",
         bottomPerformer: bottomPerformer ? bottomPerformer.name : "None"
     };
 }
+
+// Task 5: Test Your Functions with Sample Data
+
+const salesData = [
+    { name: 'Alice', sales: [12000, 15000, 13000] },
+    { name: 'Bob', sales: [7000, 6000, 7500] },
+    { name: 'Charlie', sales: [3000, 4000, 3500] },
+    { name: 'Diana', sales: [9000, 8500, 9200] },
+];
