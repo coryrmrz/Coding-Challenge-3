@@ -71,3 +71,5 @@ const salesData = [
     { name: 'Charlie', sales: [3000, 4000, 3500] },
     { name: 'Diana', sales: [9000, 8500, 9200] }, // Sampla Data Set
 ];
+const report = generatePerformanceReport(salesData);
+console.log(report);
