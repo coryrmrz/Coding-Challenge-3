@@ -63,7 +63,7 @@ function generatePerformanceReport (salesInfo) {
     };
 }
 
-// Task 5: Test Your Functions with Sample Data
+//Task 5: Test Your Functions with Sample Data
 
 const salesData = [
     { name: 'Alice', sales: [12000, 15000, 13000] },
